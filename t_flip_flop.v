@@ -6,14 +6,17 @@ module t_flip_flop(
 );
 
     initial begin
-        Q <= 0;
-        nQ <= 1;
+        Q = 0;
+        nQ = 1;
     end
 
     always @(posedge clk) begin
         if (T)
             Q <= ~Q;
-        nQ <= ~Q;
+    end
+
+    always @(*) begin
+        nQ = ~Q;
     end
 
 endmodule
